@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Gameon24 বাংলাদেশ – BDT20 Club | Oxy Club</title>
+<meta name="description" content="Gameon24 বাংলাদেশ এর জন্য BDT20 Club। Oxy Club Sponsor Code: Oxy11 ব্যবহার করে বেট করুন এবং সহজে জয়েন করুন। যোগাযোগ: 01826444505">
+<meta name="keywords" content="Gameon24, BDT20, Cricket Betting, Football Betting, Oxy Club, Sponsor Oxy11">
+
+<style>
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #0a0a0a;
+  color: white;
+  text-align: center;
+}
+
+/* Header */
+header {
+  background: #111;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+header .logo-placeholder {
+  width: 150px;
+  height: 50px;
+  background: #222;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+header .header-text {
+  text-align: right;
+}
+header .header-text p {
+  margin: 5px 0;
+}
+
+/* Slider */
+.slider {
+  width: 100%;
+  height: 300px; /* smaller slider */
+  position: relative;
+  overflow: hidden;
+  margin-top: 10px;
+}
+.slide {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: 1s;
+}
+.slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.slide a {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.active {
+  opacity: 1;
+}
+
+/* Button */
+.btn {
+  display: inline-block;
+  padding: 15px 35px;
+  background: #ff2e63;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-size: 18px;
+  margin-top: 20px;
+}
+
+/* Info Section */
+.section {
+  padding: 40px 20px;
+}
+
+/* Gameon24 + Contact Section */
+.contact-section {
+  background: #111;
+  padding: 40px 20px;
+}
+.contact-section .logo-placeholder {
+  width: 150px;
+  height: 50px;
+  background: #222;
+  margin: 0 auto 20px auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+.contact-section p, .contact-section h3 {
+  margin: 5px 0;
+}
+
+footer {
+  background: #000;
+  padding: 15px;
+  font-size: 14px;
+  color: #aaa;
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="logo-placeholder">BDT20 Club Logo</div>
+  <div class="header-text">
+    <p>Oxy Club Join থাকুন</p>
+    <p>Sponsor: Oxy11</p>
+  </div>
+</header>
+
+<!-- SLIDER -->
+<div class="slider">
+  <div class="slide active">
+    <a href="https://gameon24.com" target="_blank">
+      <img src="screen1.jpg" alt="Gameon24 Cricket Betting Slide 1">
+    </a>
+  </div>
+  <div class="slide">
+    <a href="https://gameon24.com" target="_blank">
+      <img src="screen2.jpg" alt="Gameon24 Football Betting Slide 2">
+    </a>
+  </div>
+  <div class="slide">
+    <a href="https://gameon24.com" target="_blank">
+      <img src="screen3.jpg" alt="Gameon24 Live Match Slide 3">
+    </a>
+  </div>
+  <div class="slide">
+    <a href="https://gameon24.com" target="_blank">
+      <img src="screen4.jpg" alt="Gameon24 Betting Slide 4">
+    </a>
+  </div>
+</div>
+
+<!-- Visit Gameon24 Button -->
+<div class="section">
+  <a class="btn" href="https://gameon24.com" target="_blank">Visit Gameon24</a>
+</div>
+
+<!-- Info Section -->
+<div class="section">
+  <h2>বাংলাদেশ ক্রিকেট ও ফুটবল বেটিং</h2>
+  <p>Powered by Oxy Club ✅</p>
+  <p>Sponsor Code: <b>Oxy11</b></p>
+</div>
+
+<!-- Gameon24 Logo + Contact -->
+<div class="contact-section">
+  <div class="logo-placeholder">Gameon24 Logo</div>
+  <p>যোগাযোগ করুন (Imo / WhatsApp)</p>
+  <h3>📞 01826444505</h3>
+</div>
+
+<footer>
+  © 2026 BDT20.net | Powered by Oxy Club
+</footer>
+
+<script>
+let slides = document.querySelectorAll(".slide");
+let index = 0;
+function showSlide(){
+  slides.forEach(s => s.classList.remove("active"));
+  index++;
+  if(index >= slides.length) index = 0;
+  slides[index].classList.add("active");
+}
+setInterval(showSlide, 3000);
+</script>
+
+</body>
+</html>
