@@ -145,15 +145,17 @@ header {
   backdrop-filter: blur(10px);
 }
 .logo { height: 42px; }
-.wa-btn {
-  display: flex; align-items: center; gap: 7px;
-  background: linear-gradient(135deg, #128c7e, #25d366);
-  padding: 9px 16px; border-radius: 25px;
-  color: #fff; text-decoration: none; font-size: 13px; font-weight: 600;
-  box-shadow: 0 4px 18px rgba(37,211,102,0.3);
-  transition: transform .2s, box-shadow .2s;
+.profile-logo {
+  width: 42px; height: 42px;
+  border-radius: 50%;
+  border: 2px solid var(--gold);
+  object-fit: cover;
+  box-shadow: 0 0 12px rgba(245,197,24,0.4);
+  cursor: pointer;
+  transition: box-shadow .3s, transform .2s;
 }
-.wa-btn:active { transform: scale(0.96); }
+.profile-logo:active { transform: scale(0.93); }
+.profile-logo:hover  { box-shadow: 0 0 22px rgba(245,197,24,0.7); }
 
 /* ─── HERO ─── */
 .hero {
@@ -165,7 +167,7 @@ header {
 
 /* background image */
 .hero-bg {
-  position: absolute;
+  position: absolute; inset: 0;
   background: url('www.jpg') center/cover no-repeat;
   z-index: 0;
   transform: scale(1.04);
@@ -379,10 +381,8 @@ footer {
 
 <!-- HEADER -->
 <header>
-  <img src="logo.png" class="logo" alt="Gameon24">
-  <a href="https://wa.me/8801826444505" class="wa-btn">
-    💬 যোগাযোগ করুন
-  </a>
+  <img src="logo.png" class="logo" alt="Gameon24 Bangladesh – Oxy Club">
+  <img src="oxy11.png" class="profile-logo" alt="Oxy Club Profile – Gameon24">
 </header>
 
 <!-- HERO -->
