@@ -187,25 +187,6 @@ header {
   animation: none !important;
 }
 
-/* ── LIVE BADGE ── */
-.live-badge {
-  position: absolute; top: 10px; left: 12px; z-index: 5;
-  background: #e61994; padding: 4px 10px; border-radius: 20px;
-  font-size: 11px; font-weight: 700; letter-spacing: 1px;
-  display: flex; align-items: center; gap: 5px;
-  box-shadow: 0 0 16px rgba(230,25,148,0.6);
-  animation: livePulse 2s ease-in-out infinite;
-}
-@keyframes livePulse {
-  0%,100% { box-shadow: 0 0 16px rgba(230,25,148,0.5); }
-  50%      { box-shadow: 0 0 28px rgba(230,25,148,0.9); }
-}
-.live-dot {
-  width: 7px; height: 7px; background: #fff;
-  border-radius: 50%; animation: blink 1s step-end infinite;
-}
-@keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
-
 /* ── DOT INDICATORS ── */
 .banner-btns {
   padding: 14px 16px 4px;
@@ -392,10 +373,6 @@ footer {
     <img src="bbn1.jpg" alt="Gameon24 দ্রুত ডিপোজিট উইথড্র Oxy Club Bangladesh">
   </div>
 
-  <!-- LIVE BADGE -->
-  <div class="live-badge">
-    <span class="live-dot"></span> LIVE NOW
-  </div>
 
   <!-- ARROWS -->
   <button class="slider-arrow arrow-prev" onclick="changeSlide(-1)" aria-label="Previous">&#8249;</button>
