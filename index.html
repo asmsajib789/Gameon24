@@ -229,8 +229,8 @@ header {
 
 /* ── SLIDE TEXT OVERLAY ── */
 .slide-content {
-  position: absolute; bottom: 0; left: 0; right: 0;
-  z-index: 4; padding: 14px 16px 16px;
+  position: absolute; bottom: 28px; left: 0; right: 0;
+  z-index: 4; padding: 10px 14px 6px;
   animation: fadeUp .6s ease both;
 }
 @keyframes fadeUp {
@@ -241,18 +241,25 @@ header {
   display: inline-block;
   background: linear-gradient(90deg, var(--gold), #e6a800);
   color: #000; padding: 3px 10px; border-radius: 14px;
-  font-size: 11px; font-weight: 700; margin-bottom: 6px;
+  font-size: 11px; font-weight: 700; margin-bottom: 5px;
 }
 .slide-title {
   font-family: 'Exo 2', sans-serif;
-  font-size: 20px; font-weight: 900;
-  line-height: 1.2; margin-bottom: 4px;
+  font-size: 18px; font-weight: 900;
+  line-height: 1.2; margin-bottom: 3px;
   text-shadow: 0 2px 12px rgba(0,0,0,0.9);
 }
 .slide-title span { color: var(--gold); }
 .slide-sub {
-  font-size: 12px; color: rgba(255,255,255,0.75);
-  margin-bottom: 12px;
+  font-size: 12px; color: rgba(255,255,255,0.8);
+  margin-bottom: 0;
+}
+
+/* ── BUTTONS BELOW BANNER ── */
+.banner-btns {
+  padding: 14px 16px 4px;
+  display: flex; flex-direction: column; gap: 11px;
+  background: var(--dark);
 }
 
 /* ── DOT INDICATORS ── */
@@ -426,29 +433,21 @@ footer {
 
   <!-- SLIDE 1 -->
   <div class="banner-slide active">
-    <img src="www.jpg" alt="Gameon24 Bangladesh – IPL PSL BPL Betting | Oxy Club">
+    <img src="screen1.jpg" alt="Gameon24 Bangladesh – IPL PSL BPL Betting | Oxy Club">
     <div class="slide-content">
       <div class="slide-tag">🏆 Oxy Club Official</div>
       <h1 class="slide-title">Gameon24 বাংলাদেশ<br><span>সেরা বেটিং প্ল্যাটফর্ম</span></h1>
       <p class="slide-sub">IPL · PSL · BPL সহ সকল আন্তর্জাতিক ম্যাচ</p>
-      <div class="btn-group">
-        <a href="https://gameon24.com" class="btn-primary">🎯 এখনই একাউন্ট খুলুন</a>
-        <a href="https://wa.me/8801826444505" class="btn-secondary">💬 WhatsApp সাপোর্ট</a>
-      </div>
     </div>
   </div>
 
   <!-- SLIDE 2 -->
   <div class="banner-slide">
-    <img src="screen2.jpg" alt="Gameon24 দ্রুত ডিপোজিট উইথড্র – Oxy Club Bangladesh">
+    <img src="www.jpg" alt="Gameon24 দ্রুত ডিপোজিট উইথড্র – Oxy Club Bangladesh">
     <div class="slide-content">
       <div class="slide-tag">⚡ দ্রুত ট্রানজেকশন</div>
       <h2 class="slide-title">দ্রুত ডিপোজিট<br><span>ও উইথড্র সুবিধা</span></h2>
       <p class="slide-sub">২৪/৭ সাপোর্ট · ১০০% বিশ্বস্ত প্ল্যাটফর্ম</p>
-      <div class="btn-group">
-        <a href="https://gameon24.com" class="btn-primary">🎯 এখনই একাউন্ট খুলুন</a>
-        <a href="https://wa.me/8801826444505" class="btn-secondary">💬 WhatsApp সাপোর্ট</a>
-      </div>
     </div>
   </div>
 
@@ -468,6 +467,12 @@ footer {
   </div>
 
 </section>
+
+<!-- ══ BUTTONS BELOW BANNER ══ -->
+<div class="banner-btns">
+  <a href="https://gameon24.com" class="btn-primary">🎯 এখনই একাউন্ট খুলুন</a>
+  <a href="https://wa.me/8801826444505" class="btn-secondary">💬 WhatsApp সাপোর্ট</a>
+</div>
 
 <!-- FEATURES -->
 <div class="section">
