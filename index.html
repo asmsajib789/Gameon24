@@ -157,98 +157,134 @@ header {
 .profile-logo:active { transform: scale(0.93); }
 .profile-logo:hover  { box-shadow: 0 0 22px rgba(245,197,24,0.7); }
 
-/* ─── HERO ─── */
-.hero {
+/* ─── BANNER SLIDER 16:9 ─── */
+.banner-wrap {
+  width: 100%;
+  aspect-ratio: 16 / 9;
   position: relative;
-  min-height: 92vh;
-  display: flex; flex-direction: column; justify-content: flex-end;
   overflow: hidden;
+  background: #060a14;
 }
 
-/* background image */
-.hero-bg {
+/* each slide */
+.banner-slide {
   position: absolute; inset: 0;
-  background: url('www.jpg') center/cover no-repeat;
-  z-index: 0;
-  transform: scale(1.04);
-  animation: slowZoom 12s ease-in-out infinite alternate;
+  opacity: 0;
+  transition: opacity .7s ease;
+  pointer-events: none;
 }
-@keyframes slowZoom {
-  from { transform: scale(1.04); }
-  to   { transform: scale(1.12); }
+.banner-slide.active {
+  opacity: 1;
+  pointer-events: auto;
 }
 
-/* gradient overlays */
-.hero-bg::after {
+/* banner image fills full 16:9 */
+.banner-slide img {
+  width: 100%; height: 100%;
+  object-fit: cover; display: block;
+}
+
+/* dark gradient overlay on each slide */
+.banner-slide::after {
   content: '';
   position: absolute; inset: 0;
-  background:
-    linear-gradient(to top, rgba(6,10,20,1) 0%, rgba(6,10,20,0.55) 45%, rgba(6,10,20,0.15) 100%),
-    linear-gradient(to right, rgba(6,10,20,0.6) 0%, transparent 60%);
+  background: linear-gradient(
+    to top,
+    rgba(6,10,20,0.82) 0%,
+    rgba(6,10,20,0.35) 50%,
+    transparent 100%
+  );
 }
 
-/* animated gold shimmer line */
-.shimmer-line {
-  position: absolute; top: 0; left: -100%;
-  width: 60%; height: 100%;
-  background: linear-gradient(105deg, transparent 40%, rgba(245,197,24,0.06) 50%, transparent 60%);
-  animation: shimmer 5s ease-in-out infinite;
-  z-index: 1; pointer-events: none;
+/* shimmer sweep */
+.banner-slide::before {
+  content: '';
+  position: absolute; inset: 0; z-index: 1;
+  background: linear-gradient(105deg, transparent 40%, rgba(245,197,24,0.07) 50%, transparent 60%);
+  animation: bannerShimmer 4s ease-in-out infinite;
 }
-@keyframes shimmer {
-  0%   { left: -100%; }
-  100% { left: 150%; }
+@keyframes bannerShimmer {
+  0%   { transform: translateX(-120%); }
+  100% { transform: translateX(220%); }
 }
 
-/* corner badge */
+/* ── LIVE BADGE ── */
 .live-badge {
-  position: absolute; top: 18px; left: 20px; z-index: 3;
-  background: #e61994; padding: 5px 12px; border-radius: 20px;
-  font-size: 12px; font-weight: 700; letter-spacing: 1px;
-  display: flex; align-items: center; gap: 6px;
-  box-shadow: 0 0 20px rgba(230,25,148,0.5);
-  animation: pulse 2s ease-in-out infinite;
+  position: absolute; top: 10px; left: 12px; z-index: 5;
+  background: #e61994; padding: 4px 10px; border-radius: 20px;
+  font-size: 11px; font-weight: 700; letter-spacing: 1px;
+  display: flex; align-items: center; gap: 5px;
+  box-shadow: 0 0 16px rgba(230,25,148,0.6);
+  animation: livePulse 2s ease-in-out infinite;
 }
-@keyframes pulse {
-  0%,100% { box-shadow: 0 0 20px rgba(230,25,148,0.5); }
-  50%      { box-shadow: 0 0 35px rgba(230,25,148,0.85); }
+@keyframes livePulse {
+  0%,100% { box-shadow: 0 0 16px rgba(230,25,148,0.5); }
+  50%      { box-shadow: 0 0 28px rgba(230,25,148,0.9); }
 }
 .live-dot {
-  width: 8px; height: 8px; background: #fff;
+  width: 7px; height: 7px; background: #fff;
   border-radius: 50%; animation: blink 1s step-end infinite;
 }
 @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
 
-/* ─── HERO CONTENT ─── */
-.hero-content {
-  position: relative; z-index: 2;
-  padding: 0 20px 40px;
-  animation: fadeUp .8s ease both;
+/* ── SLIDE TEXT OVERLAY ── */
+.slide-content {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  z-index: 4; padding: 14px 16px 16px;
+  animation: fadeUp .6s ease both;
 }
 @keyframes fadeUp {
-  from { opacity:0; transform: translateY(30px); }
-  to   { opacity:1; transform: translateY(0); }
+  from { opacity:0; transform:translateY(16px); }
+  to   { opacity:1; transform:translateY(0); }
 }
-
-.hero-tag {
+.slide-tag {
   display: inline-block;
   background: linear-gradient(90deg, var(--gold), #e6a800);
-  color: #000; padding: 4px 14px; border-radius: 20px;
-  font-size: 12px; font-weight: 700; margin-bottom: 12px; letter-spacing: 0.5px;
+  color: #000; padding: 3px 10px; border-radius: 14px;
+  font-size: 11px; font-weight: 700; margin-bottom: 6px;
 }
-
-.hero h1 {
+.slide-title {
   font-family: 'Exo 2', sans-serif;
-  font-size: 28px; font-weight: 900;
-  line-height: 1.2; margin-bottom: 10px;
-  text-shadow: 0 2px 20px rgba(0,0,0,0.8);
+  font-size: 20px; font-weight: 900;
+  line-height: 1.2; margin-bottom: 4px;
+  text-shadow: 0 2px 12px rgba(0,0,0,0.9);
 }
-.hero h1 span { color: var(--gold); }
+.slide-title span { color: var(--gold); }
+.slide-sub {
+  font-size: 12px; color: rgba(255,255,255,0.75);
+  margin-bottom: 12px;
+}
 
-.hero-sub {
-  font-size: 14px; color: rgba(255,255,255,0.75);
-  margin-bottom: 22px; line-height: 1.6;
+/* ── DOT INDICATORS ── */
+.slider-dots {
+  position: absolute; bottom: 10px; right: 14px; z-index: 6;
+  display: flex; gap: 6px;
 }
+.dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: rgba(255,255,255,0.35);
+  cursor: pointer; transition: background .3s, transform .3s;
+  border: none; padding: 0;
+}
+.dot.active {
+  background: var(--gold);
+  transform: scale(1.3);
+}
+
+/* ── PREV / NEXT ARROWS ── */
+.slider-arrow {
+  position: absolute; top: 50%; z-index: 6;
+  transform: translateY(-50%);
+  background: rgba(6,10,20,0.55);
+  border: 1px solid rgba(245,197,24,0.3);
+  color: var(--gold); font-size: 16px;
+  width: 32px; height: 32px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer; transition: background .2s;
+}
+.slider-arrow:hover { background: rgba(245,197,24,0.15); }
+.arrow-prev { left: 10px; }
+.arrow-next { right: 10px; }
 
 /* ─── BUTTONS ─── */
 .btn-group { display: flex; flex-direction: column; gap: 12px; }
@@ -385,32 +421,53 @@ footer {
   <img src="oxy11.png" class="profile-logo" alt="Oxy Club Profile – Gameon24">
 </header>
 
-<!-- HERO -->
-<div class="hero">
-  <div class="hero-bg"></div>
-  <div class="shimmer-line"></div>
+<!-- ══ BANNER SLIDER 16:9 ══ -->
+<section class="banner-wrap" aria-label="Gameon24 Oxy Club Banner">
 
-  <!-- live badge -->
+  <!-- SLIDE 1 -->
+  <div class="banner-slide active">
+    <img src="www.jpg" alt="Gameon24 Bangladesh – IPL PSL BPL Betting | Oxy Club">
+    <div class="slide-content">
+      <div class="slide-tag">🏆 Oxy Club Official</div>
+      <h1 class="slide-title">Gameon24 বাংলাদেশ<br><span>সেরা বেটিং প্ল্যাটফর্ম</span></h1>
+      <p class="slide-sub">IPL · PSL · BPL সহ সকল আন্তর্জাতিক ম্যাচ</p>
+      <div class="btn-group">
+        <a href="https://gameon24.com" class="btn-primary">🎯 এখনই একাউন্ট খুলুন</a>
+        <a href="https://wa.me/8801826444505" class="btn-secondary">💬 WhatsApp সাপোর্ট</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- SLIDE 2 -->
+  <div class="banner-slide">
+    <img src="screen2.jpg" alt="Gameon24 দ্রুত ডিপোজিট উইথড্র – Oxy Club Bangladesh">
+    <div class="slide-content">
+      <div class="slide-tag">⚡ দ্রুত ট্রানজেকশন</div>
+      <h2 class="slide-title">দ্রুত ডিপোজিট<br><span>ও উইথড্র সুবিধা</span></h2>
+      <p class="slide-sub">২৪/৭ সাপোর্ট · ১০০% বিশ্বস্ত প্ল্যাটফর্ম</p>
+      <div class="btn-group">
+        <a href="https://gameon24.com" class="btn-primary">🎯 এখনই একাউন্ট খুলুন</a>
+        <a href="https://wa.me/8801826444505" class="btn-secondary">💬 WhatsApp সাপোর্ট</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- LIVE BADGE -->
   <div class="live-badge">
     <span class="live-dot"></span> LIVE NOW
   </div>
 
-  <!-- content -->
-  <div class="hero-content">
-    <div class="hero-tag">🏆 Oxy Club Official</div>
-    <h1>Gameon24 বাংলাদেশ<br><span>সেরা বেটিং প্ল্যাটফর্ম</span></h1>
-    <p class="hero-sub">IPL · PSL · BPL সহ সকল ইন্টারন্যাশনাল ম্যাচ।<br>দ্রুত ডিপোজিট ও উইথড্র সুবিধা।</p>
+  <!-- ARROWS -->
+  <button class="slider-arrow arrow-prev" onclick="changeSlide(-1)" aria-label="Previous">&#8249;</button>
+  <button class="slider-arrow arrow-next" onclick="changeSlide(1)" aria-label="Next">&#8250;</button>
 
-    <div class="btn-group">
-      <a href="https://gameon24.com" class="btn-primary">
-        🎯 এখনই একাউন্ট খুলুন
-      </a>
-      <a href="https://wa.me/8801826444505" class="btn-secondary">
-        💬 WhatsApp সাপোর্ট
-      </a>
-    </div>
+  <!-- DOTS -->
+  <div class="slider-dots">
+    <button class="dot active" onclick="goSlide(0)" aria-label="Slide 1"></button>
+    <button class="dot" onclick="goSlide(1)" aria-label="Slide 2"></button>
   </div>
-</div>
+
+</section>
 
 <!-- FEATURES -->
 <div class="section">
@@ -438,7 +495,7 @@ footer {
   <!-- INFO CARD -->
   <div class="info-card">
     <div class="info-header">
-      <img src="oxy11.png" alt="Oxy Club">
+      <img src="logo.png" alt="Oxy Club">
       <div>
         <h3>Oxy Club অফিসিয়াল</h3>
         <p>Verified Partner – Gameon24</p>
@@ -471,6 +528,41 @@ footer {
 
 <!-- FLOATING WA BUTTON -->
 <a href="https://wa.me/8801826444505" class="float-wa" title="WhatsApp">💬</a>
+
+<!-- SLIDER JS -->
+<script>
+  let current = 0;
+  const slides = document.querySelectorAll('.banner-slide');
+  const dots   = document.querySelectorAll('.dot');
+  let timer;
+
+  function goSlide(n) {
+    slides[current].classList.remove('active');
+    dots[current].classList.remove('active');
+    current = (n + slides.length) % slides.length;
+    slides[current].classList.add('active');
+    dots[current].classList.add('active');
+    resetTimer();
+  }
+
+  function changeSlide(dir) { goSlide(current + dir); }
+
+  function resetTimer() {
+    clearInterval(timer);
+    timer = setInterval(() => changeSlide(1), 5000);
+  }
+
+  timer = setInterval(() => changeSlide(1), 5000);
+
+  // swipe support
+  let touchStartX = 0;
+  const wrap = document.querySelector('.banner-wrap');
+  wrap.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; }, {passive:true});
+  wrap.addEventListener('touchend', e => {
+    const diff = touchStartX - e.changedTouches[0].clientX;
+    if (Math.abs(diff) > 40) changeSlide(diff > 0 ? 1 : -1);
+  }, {passive:true});
+</script>
 
 </body>
 </html>
